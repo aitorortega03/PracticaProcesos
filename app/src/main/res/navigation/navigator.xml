@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigator"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/helpFragment"
+        android:name="com.example.infocovid.HelpFragment"
+        android:label="fragment_help"
+        tools:layout="@layout/fragment_help" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.infocovid.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/demainAHelp"
+            app:destination="@id/helpFragment" />
+        <action
+            android:id="@+id/demainADatos"
+            app:destination="@id/datosMapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/datosMapsFragment"
+        android:name="com.example.infocovid.DatosMapsFragment"
+        android:label="fragment_datos_maps"
+        tools:layout="@layout/fragment_datos_maps" />
+</navigation>
