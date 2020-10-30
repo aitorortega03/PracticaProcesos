@@ -65,19 +65,11 @@ public class MainFragment extends Fragment {
         View vista = inflater.inflate(R.layout.fragment_main, container, false);
 
         Button data = vista.findViewById(R.id.btnDatos);
-        Button help = vista.findViewById(R.id.btnHelp);
 
         data.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 findNavController(v).navigate(R.id.demainADatos);
-            }
-        });
-
-        help.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                findNavController(v).navigate(R.id.demainAHelp);
             }
         });
 
