@@ -5,4 +5,5 @@
     <string name="data_button">DATOS</string>
     <string name="profile_button">PERFIL</string>
     <string name="help_button">AYUDA</string>
+    <string name="logo_description">AppLogo</string>
 </resources>

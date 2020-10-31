@@ -3,6 +3,7 @@ package com.example.infocovid;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -64,7 +65,17 @@ public class MainFragment extends Fragment {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_main, container, false);
 
-        Button data = vista.findViewById(R.id.btnDatos);
+        Button data = (Button) vista.findViewById(R.id.btnData);
+        Button help = (Button) vista.findViewById(R.id.btnHelp);
+        Button profile = (Button) vista.findViewById(R.id.btnProfile);
+
+        help.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                findNavController(v).navigate(R.id.demainAHelp);
+            }
+        });
 
         data.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,4 +86,5 @@ public class MainFragment extends Fragment {
 
         return vista;
     }
+
 }
