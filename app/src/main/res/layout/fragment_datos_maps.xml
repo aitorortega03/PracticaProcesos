@@ -17,8 +17,6 @@
         android:layout_marginTop="64dp"
         android:layout_marginEnd="61dp"
         android:layout_marginRight="61dp"
-        android:layout_marginBottom="36dp"
-        app:layout_constraintBottom_toTopOf="@+id/spMunicipio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,10 +30,7 @@
         android:layout_marginTop="128dp"
         android:layout_marginEnd="61dp"
         android:layout_marginRight="61dp"
-        android:layout_marginBottom="44dp"
-        app:layout_constraintBottom_toTopOf="@+id/spZonaSan"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -48,10 +43,7 @@
         android:layout_marginTop="200dp"
         android:layout_marginEnd="61dp"
         android:layout_marginRight="61dp"
-        android:layout_marginBottom="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/bBuscar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,7 +58,6 @@
         android:layout_marginRight="112dp"
         android:text="Buscar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,7 +67,7 @@
         android:layout_height="36dp"
         android:layout_marginStart="36dp"
         android:layout_marginLeft="36dp"
-        android:layout_marginTop="416dp"
+        android:layout_marginTop="98dp"
         android:layout_marginEnd="271dp"
         android:layout_marginRight="271dp"
         android:layout_marginBottom="44dp"
@@ -85,7 +76,7 @@
         app:layout_constraintBottom_toTopOf="@+id/tvContagios"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/bBuscar" />
 
     <TextView
         android:id="@+id/tvContagios"
@@ -133,6 +124,7 @@
         android:layout_marginBottom="44dp"
         android:ems="10"
         android:inputType="number"
+        android:focusable="false"
         app:layout_constraintBottom_toTopOf="@+id/etnContagios"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -150,6 +142,7 @@
         android:layout_marginBottom="44dp"
         android:ems="10"
         android:inputType="number"
+        android:focusable="false"
         app:layout_constraintBottom_toTopOf="@+id/etnFallecidos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -167,6 +160,7 @@
         android:layout_marginBottom="119dp"
         android:ems="10"
         android:inputType="number"
+        android:focusable="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
