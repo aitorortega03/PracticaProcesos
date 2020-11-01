@@ -10,6 +10,7 @@
 
     <Spinner
         android:id="@+id/spComunidad"
+        android:entries="@array/Comunidad"
         android:layout_width="294dp"
         android:layout_height="28dp"
         android:layout_marginStart="56dp"
@@ -23,6 +24,7 @@
 
     <Spinner
         android:id="@+id/spMunicipio"
+        android:entries="@array/Municipio"
         android:layout_width="294dp"
         android:layout_height="28dp"
         android:layout_marginStart="56dp"
@@ -36,6 +38,7 @@
 
     <Spinner
         android:id="@+id/spZonaSan"
+        android:entries="@array/ZonaSan"
         android:layout_width="294dp"
         android:layout_height="28dp"
         android:layout_marginStart="56dp"
@@ -124,7 +127,7 @@
         android:layout_marginBottom="44dp"
         android:ems="10"
         android:inputType="number"
-        android:focusable="false"
+        android:enabled="false"
         app:layout_constraintBottom_toTopOf="@+id/etnContagios"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -142,7 +145,7 @@
         android:layout_marginBottom="44dp"
         android:ems="10"
         android:inputType="number"
-        android:focusable="false"
+        android:enabled="false"
         app:layout_constraintBottom_toTopOf="@+id/etnFallecidos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -160,7 +163,7 @@
         android:layout_marginBottom="119dp"
         android:ems="10"
         android:inputType="number"
-        android:focusable="false"
+        android:enabled="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
