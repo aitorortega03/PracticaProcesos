@@ -7,10 +7,6 @@
     tools:context=".HelpFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
     <LinearLayout
         android:id="@+id/LinearLayout"
@@ -27,13 +23,20 @@
             android:theme="?attr/actionBarTheme"
             app:title="Ayuda" />
 
-        <EditText
-            android:id="@+id/editTextTextPersonName"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="593dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Aquí va el manual" />
+            android:layout_height="608dp">
+
+            <EditText
+                android:id="@+id/editTextTextMultiLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:text= "INFOCovid \nInfórmate de las restricciones de tu comunidad Autónoma, así como del número de contagios y la información en tiempo real de la situación de los hospitales.\nLa información de los usuarios de esta aplicación es confidencial y sus datos no se compartirán con nadie.\nINFORMACIÓN GENERAL\n¿Qué es INFOCovid?\nINFOCovid es un aplicación móvil desarrollada para informar a los ciudadanos sobre la situación actual de la pandemia en su comunidad autónoma. La información se puede clasificar en: información de toda la comunidad autónoma acumulada, información por zonas sanitarias y información por municipios de la comunidad autónoma.\n¿Para qué usar INFOCovid?\nINFOCovid es una aplicación para conseguir información acerca de la comunidad autónoma en la que nos encontremos.\n¿Por qué usar INFOCovid?\n INFOCovid es la única aplicación del mercado con la posibilidad de agrupar toda la información acerca de una comunidad autónoma. Tanto datos informativos acerca de la pandemia (número de contagios nuevos, contagios acumulados, fallecidos, el estado de ocupación de las camas UCIs en los hospitales, etc.) como datos de restricciones (acerca de posibles estados de alarma, restricciones por zonas sanitarias, etc.). Estos datos se mostraran de forma acumulada por semanas, y en tiempo real, actualizándose diariamente.\nCÓMO USAR INFOCovid\nINFOCovid tiene una pantalla para acceder a la cuenta creada por el usuario, o para crear una cuenta nueva. Una vez que el usuario haya accedido a la cuenta tiene una pagina de inicio. Desde ahí, puede navegar a las pantallas de: ajustes, en la que podrá hacer cambios en su cuenta; manual de uso, en la que podrá ver preguntas frecuentes acerca de la aplicación, y cómo funciona, y una pantalla de datos donde se presentarán los datos, acumulados, por municipios y por zonas sanitarias."
+                />
+        </ScrollView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton2"
