@@ -64,7 +64,7 @@ public class MainFragment extends Fragment {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_main, container, false);
 
-        Button data = vista.findViewById(R.id.btnDatos);
+        Button data = vista.findViewById(R.id.btnData);
         Button help = vista.findViewById(R.id.btnHelp);
 
         data.setOnClickListener(new View.OnClickListener() {
