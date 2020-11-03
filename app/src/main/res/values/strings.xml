@@ -16,6 +16,6 @@
     <string-array name="ZonaSan">
         <item>--Elige una zona sanitaria--</item>
         <item>TODAS</item>
-        <item>Zona 1</item>
+        <item>San Blas</item>
     </string-array>
 </resources>
