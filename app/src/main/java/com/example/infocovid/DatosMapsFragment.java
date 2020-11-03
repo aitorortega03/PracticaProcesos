@@ -8,6 +8,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -42,7 +46,33 @@ public class DatosMapsFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_datos_maps, container, false);
+
+        //Permite programar el evento onClick del boton bBuscar
+        View vista = inflater.inflate(R.layout.fragment_datos_maps, container, false);
+        Button bBuscar = vista.findViewById(R.id.bBuscar);
+        Spinner spComunidad = vista.findViewById(R.id.spComunidad);
+        Spinner spMunicipio = vista.findViewById(R.id.spMunicipio);
+        Spinner spZonaSan = vista.findViewById(R.id.spZonaSan);
+        EditText etnPoblacion = vista.findViewById(R.id.etnPoblacion);
+        EditText etnContagios = vista.findViewById(R.id.etnContagios);
+        EditText etnFallecidos = vista.findViewById(R.id.etnFallecidos);
+
+        bBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (spComunidad.getSelectedItemPosition()==0 || spMunicipio.getSelectedItemPosition()==0 || spZonaSan.getSelectedItemPosition()==0) {
+                    Toast.makeText(getContext(), "Seleccione una comunidad, municipio y zona sanitaria.", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getContext(), "Buscando datos...", Toast.LENGTH_LONG).show();
+                    etnPoblacion.setText("128.256");
+                    etnContagios.setText("7.365");
+                    etnFallecidos.setText("117");
+                }
+            }
+        });
+
+        return vista;
+        //return inflater.inflate(R.layout.fragment_datos_maps, container, false);
     }
 
     @Override

@@ -2,4 +2,20 @@
     <string name="app_name">InfoCOVID</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="Comunidad">
+        <item>--Elige una comunidad--</item>
+        <item>TODAS</item>
+        <item>Comunidad de Madrid</item>
+    </string-array>
+    <string-array name="Municipio">
+        <item>--Elige un municipio--</item>
+        <item>TODOS</item>
+        <item>Parla</item>
+    </string-array>
+    <string-array name="ZonaSan">
+        <item>--Elige una zona sanitaria--</item>
+        <item>TODAS</item>
+        <item>Zona 1</item>
+    </string-array>
 </resources>
