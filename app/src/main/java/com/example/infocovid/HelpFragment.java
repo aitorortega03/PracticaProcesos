@@ -7,6 +7,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ScrollView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +63,17 @@ public class HelpFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_help, container, false);
+        View help = inflater.inflate(R.layout.fragment_help, container, false);
+        EditText texto = help.findViewById(R.id.editTextTextMultiLine);
+        texto.setFocusable(false);
+        ScrollView scroll = help.findViewById(R.id.scrollhelp);
+        FloatingActionButton fab = help.findViewById(R.id.floatingActionButton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                scroll.fullScroll(ScrollView.FOCUS_UP);
+            }
+        });
+        return help;
     }
 }
