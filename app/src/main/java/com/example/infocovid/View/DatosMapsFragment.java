@@ -1,18 +1,28 @@
-package com.example.infocovid;
+package com.example.infocovid.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.infocovid.Controller.PostService;
+import com.example.infocovid.Model.Atributes;
+import com.example.infocovid.Model.Features;
+import com.example.infocovid.Model.Posts;
+import com.example.infocovid.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -20,7 +30,25 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
 public class DatosMapsFragment extends Fragment {
+
+
+    private ArrayList<String> titles = new ArrayList<>();
+    private ArrayAdapter arrayAdapter;
+    private HashMap<String,Atributes> datosMunicipios = new HashMap<String, Atributes>();
+    private ProgressBar loading;
+    private ConstraintLayout layout;
+
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
@@ -56,6 +84,13 @@ public class DatosMapsFragment extends Fragment {
         EditText etnPoblacion = vista.findViewById(R.id.etnPoblacion);
         EditText etnContagios = vista.findViewById(R.id.etnContagios);
         EditText etnFallecidos = vista.findViewById(R.id.etnFallecidos);
+        arrayAdapter = new ArrayAdapter(getActivity(),android.R.layout.simple_list_item_1,titles);
+        spMunicipio.setAdapter(arrayAdapter);
+        loading = vista.findViewById(R.id.progressBar);
+        layout = vista.findViewById(R.id.constrailLayoutMenu);
+        layout.setVisibility(View.INVISIBLE);
+        loading.setVisibility(View.VISIBLE);
+        getPosts();
 
         bBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,9 +99,9 @@ public class DatosMapsFragment extends Fragment {
                     Toast.makeText(getContext(), "Seleccione una comunidad, municipio y zona sanitaria.", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getContext(), "Buscando datos...", Toast.LENGTH_LONG).show();
-                    etnPoblacion.setText("128.256");
-                    etnContagios.setText("7.365");
-                    etnFallecidos.setText("117");
+                    etnPoblacion.setText("1231");
+                    etnContagios.setText(""+datosMunicipios.get(spMunicipio.getSelectedItem().toString()).getCasos_confirmados_ultimos_14dia());
+                    etnFallecidos.setText("");
                 }
             }
         });
@@ -83,5 +118,41 @@ public class DatosMapsFragment extends Fragment {
         if (mapFragment != null) {
             mapFragment.getMapAsync(callback);
         }
+    }
+
+    private void getPosts() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://services7.arcgis.com")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        PostService postService = retrofit.create(PostService.class);
+        Call<Posts> call = postService.getPost();
+        titles.add("--Elige un municipio--");
+        call.enqueue(new Callback<Posts>() {
+            @Override
+            public void onResponse(Call<Posts> call, Response<Posts> response) {
+                for (Features feature: response.body().getFeatures()) {
+                    Atributes atribute = feature.getAttributes();
+                    if (titles.contains(atribute.getDSMUNI())){
+
+                    }else {
+                        datosMunicipios.put(atribute.getDSMUNI().toString(),atribute);
+                        titles.add(atribute.getDSMUNI().toString());
+                    }
+                }
+                Collections.sort(titles);
+                arrayAdapter.notifyDataSetChanged();
+                loading.setVisibility(View.INVISIBLE);
+                layout.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            public void onFailure(Call<Posts> call, Throwable t) {
+                titles.add(t.getCause().toString());
+                Toast.makeText(getContext(),""+t.getCause(),Toast.LENGTH_LONG).show();
+                System.out.println(t.getCause().toString());
+                arrayAdapter.notifyDataSetChanged();
+            }
+        });
     }
 }
