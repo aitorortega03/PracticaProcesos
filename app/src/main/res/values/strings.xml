@@ -2,4 +2,24 @@
     <string name="app_name">InfoCOVID</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="data_button">DATOS</string>
+    <string name="profile_button">PERFIL</string>
+    <string name="help_button">AYUDA</string>
+    <string name="logo_description">AppLogo</string>
+
+    <string-array name="Comunidad">
+        <item>--Elige una comunidad--</item>
+        <item>TODAS</item>
+        <item>Comunidad de Madrid</item>
+    </string-array>
+    <string-array name="Municipio">
+        <item>--Elige un municipio--</item>
+        <item>TODOS</item>
+        <item>Parla</item>
+    </string-array>
+    <string-array name="ZonaSan">
+        <item>--Elige una zona sanitaria--</item>
+        <item>TODAS</item>
+        <item>San Blas</item>
+    </string-array>
 </resources>
