@@ -1,10 +1,5 @@
 package com.example.infocovid.View;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.fragment.app.Fragment;
-
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,15 +7,21 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.Fragment;
+
+import com.example.infocovid.Controller.PoblacionService;
 import com.example.infocovid.Controller.PostService;
 import com.example.infocovid.Model.Atributes;
 import com.example.infocovid.Model.Features;
+import com.example.infocovid.Model.JsonPoblacion;
+import com.example.infocovid.Model.PoblacionData;
 import com.example.infocovid.Model.Posts;
 import com.example.infocovid.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -44,8 +45,11 @@ public class DatosMapsFragment extends Fragment {
 
 
     private ArrayList<String> titles = new ArrayList<>();
+    private ArrayList<String> poblasionDensidad = new ArrayList<>();
     private ArrayAdapter arrayAdapter;
+    private ArrayAdapter arrayAdapterPoblacion;
     private HashMap<String,Atributes> datosMunicipios = new HashMap<String, Atributes>();
+    private HashMap<String,PoblacionData> datosPoblacion = new HashMap<String, PoblacionData>();
     private ProgressBar loading;
     private ConstraintLayout layout;
 
@@ -80,7 +84,6 @@ public class DatosMapsFragment extends Fragment {
         Button bBuscar = vista.findViewById(R.id.bBuscar);
         Spinner spComunidad = vista.findViewById(R.id.spComunidad);
         Spinner spMunicipio = vista.findViewById(R.id.spMunicipio);
-        Spinner spZonaSan = vista.findViewById(R.id.spZonaSan);
         EditText etnPoblacion = vista.findViewById(R.id.etnPoblacion);
         EditText etnContagios = vista.findViewById(R.id.etnContagios);
         EditText etnFallecidos = vista.findViewById(R.id.etnFallecidos);
@@ -90,18 +93,18 @@ public class DatosMapsFragment extends Fragment {
         layout = vista.findViewById(R.id.constrailLayoutMenu);
         layout.setVisibility(View.INVISIBLE);
         loading.setVisibility(View.VISIBLE);
+        getPoblaciones();
         getPosts();
-
         bBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (spComunidad.getSelectedItemPosition()==0 || spMunicipio.getSelectedItemPosition()==0 || spZonaSan.getSelectedItemPosition()==0) {
+                if (spComunidad.getSelectedItemPosition()==0 || spMunicipio.getSelectedItemPosition()==0 ) {
                     Toast.makeText(getContext(), "Seleccione una comunidad, municipio y zona sanitaria.", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(getContext(), "Buscando datos...", Toast.LENGTH_LONG).show();
-                    etnPoblacion.setText("1231");
+                    etnPoblacion.setText(""+datosPoblacion.get(spMunicipio.getSelectedItem().toString()).getDensidad_por_km2());
                     etnContagios.setText(""+datosMunicipios.get(spMunicipio.getSelectedItem().toString()).getCasos_confirmados_ultimos_14dia());
-                    etnFallecidos.setText("");
+                    etnFallecidos.setText("-");
                 }
             }
         });
@@ -148,6 +151,36 @@ public class DatosMapsFragment extends Fragment {
 
             @Override
             public void onFailure(Call<Posts> call, Throwable t) {
+                titles.add(t.getCause().toString());
+                Toast.makeText(getContext(),""+t.getCause(),Toast.LENGTH_LONG).show();
+                System.out.println(t.getCause().toString());
+                arrayAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    private void getPoblaciones() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://datos.comunidad.madrid")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        PoblacionService poblacionservice = retrofit.create(PoblacionService.class);
+        Call<JsonPoblacion> call2 = poblacionservice.getPost();
+        call2.enqueue(new Callback<JsonPoblacion>() {
+            @Override
+            public void onResponse(Call<JsonPoblacion> call, Response<JsonPoblacion> response) {
+                for (PoblacionData pd: response.body().getData()) {
+                    if (poblasionDensidad.contains(pd.getMunicipio_nombre())){
+
+                    }else {
+                        datosPoblacion.put(pd.getMunicipio_nombre().toString(),pd);
+                        poblasionDensidad.add(pd.getMunicipio_nombre().toString());
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call<JsonPoblacion> call, Throwable t) {
                 titles.add(t.getCause().toString());
                 Toast.makeText(getContext(),""+t.getCause(),Toast.LENGTH_LONG).show();
                 System.out.println(t.getCause().toString());
