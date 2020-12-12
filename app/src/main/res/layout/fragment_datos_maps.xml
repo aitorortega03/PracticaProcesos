@@ -24,20 +24,20 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="1.0">
 
         <TextView
             android:id="@+id/tvFallecidos"
             android:layout_width="104dp"
             android:layout_height="36dp"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="20dp"
             android:text="Fallecidos"
             android:textSize="20dp"
             app:layout_constraintEnd_toStartOf="@+id/etnFallecidos"
-            app:layout_constraintHorizontal_bias="0.525"
+            app:layout_constraintHorizontal_bias="0.187"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvContagios" />
 
@@ -45,11 +45,11 @@
             android:id="@+id/tvPoblacion"
             android:layout_width="145dp"
             android:layout_height="34dp"
-            android:layout_marginTop="360dp"
+            android:layout_marginTop="368dp"
             android:text="Población/Km2"
             android:textSize="20dp"
             app:layout_constraintEnd_toStartOf="@+id/etnPoblacion"
-            app:layout_constraintHorizontal_bias="0.525"
+            app:layout_constraintHorizontal_bias="0.38"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -57,51 +57,57 @@
             android:id="@+id/tvContagios"
             android:layout_width="104dp"
             android:layout_height="36dp"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="28dp"
             android:text="Contagios"
             android:textSize="20dp"
             app:layout_constraintEnd_toStartOf="@+id/etnContagios"
-            app:layout_constraintHorizontal_bias="0.525"
+            app:layout_constraintHorizontal_bias="0.192"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvPoblacion" />
 
         <EditText
             android:id="@+id/etnContagios"
-            android:layout_width="208dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="36dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
+            android:layout_width="176dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="24dp"
             android:ems="10"
             android:enabled="false"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.762"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etnPoblacion" />
 
         <EditText
             android:id="@+id/etnFallecidos"
-            android:layout_width="208dp"
-            android:layout_height="36dp"
-            android:layout_marginTop="44dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
+            android:layout_width="176dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="16dp"
             android:ems="10"
             android:enabled="false"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.762"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etnContagios" />
 
         <EditText
             android:id="@+id/etnPoblacion"
             android:layout_width="176dp"
-            android:layout_height="38dp"
-            android:layout_marginTop="360dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginRight="40dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="356dp"
             android:ems="10"
             android:enabled="false"
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.761"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
