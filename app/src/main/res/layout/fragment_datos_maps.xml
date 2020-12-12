@@ -6,167 +6,136 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".DatosMapsFragment" >
+    tools:context=".View.DatosMapsFragment" >
 
-    <Spinner
-        android:id="@+id/spComunidad"
-        android:entries="@array/Comunidad"
-        android:layout_width="294dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="61dp"
-        android:layout_marginRight="61dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/spMunicipio"
-        android:entries="@array/Municipio"
-        android:layout_width="294dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="61dp"
-        android:layout_marginRight="61dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Spinner
-        android:id="@+id/spZonaSan"
-        android:entries="@array/ZonaSan"
-        android:layout_width="294dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="56dp"
-        android:layout_marginLeft="56dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="61dp"
-        android:layout_marginRight="61dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/bBuscar"
-        android:layout_width="187dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="112dp"
-        android:layout_marginLeft="112dp"
-        android:layout_marginTop="276dp"
-        android:layout_marginEnd="112dp"
-        android:layout_marginRight="112dp"
-        android:text="Buscar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvPoblacion"
-        android:layout_width="104dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="98dp"
-        android:layout_marginEnd="271dp"
-        android:layout_marginRight="271dp"
-        android:layout_marginBottom="44dp"
-        android:text="Población"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/tvContagios"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bBuscar" />
-
-    <TextView
-        android:id="@+id/tvContagios"
-        android:layout_width="104dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="496dp"
-        android:layout_marginEnd="271dp"
-        android:layout_marginRight="271dp"
-        android:layout_marginBottom="44dp"
-        android:text="Contagios"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/tvFallecidos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvFallecidos"
-        android:layout_width="104dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
-        android:layout_marginTop="576dp"
-        android:layout_marginEnd="271dp"
-        android:layout_marginRight="271dp"
-        android:layout_marginBottom="119dp"
-        android:text="Fallecidos"
-        android:textSize="20dp"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etnPoblacion"
-        android:layout_width="208dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="172dp"
-        android:layout_marginLeft="172dp"
-        android:layout_marginTop="416dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        android:layout_marginBottom="44dp"
-        android:ems="10"
-        android:inputType="number"
-        android:enabled="false"
-        app:layout_constraintBottom_toTopOf="@+id/etnContagios"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etnContagios"
-        android:layout_width="208dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="172dp"
-        android:layout_marginLeft="172dp"
-        android:layout_marginTop="496dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        android:layout_marginBottom="44dp"
-        android:ems="10"
-        android:inputType="number"
-        android:enabled="false"
-        app:layout_constraintBottom_toTopOf="@+id/etnFallecidos"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/etnFallecidos"
-        android:layout_width="208dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="172dp"
-        android:layout_marginLeft="172dp"
-        android:layout_marginTop="576dp"
-        android:layout_marginEnd="31dp"
-        android:layout_marginRight="31dp"
-        android:layout_marginBottom="119dp"
-        android:ems="10"
-        android:inputType="number"
-        android:enabled="false"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constrailLayoutMenu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/tvFallecidos"
+            android:layout_width="104dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="44dp"
+            android:text="Fallecidos"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/etnFallecidos"
+            app:layout_constraintHorizontal_bias="0.525"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvContagios" />
+
+        <TextView
+            android:id="@+id/tvPoblacion"
+            android:layout_width="145dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="360dp"
+            android:text="Población/Km2"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/etnPoblacion"
+            app:layout_constraintHorizontal_bias="0.525"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvContagios"
+            android:layout_width="104dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="36dp"
+            android:text="Contagios"
+            android:textSize="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/etnContagios"
+            app:layout_constraintHorizontal_bias="0.525"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvPoblacion" />
+
+        <EditText
+            android:id="@+id/etnContagios"
+            android:layout_width="208dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:enabled="false"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etnPoblacion" />
+
+        <EditText
+            android:id="@+id/etnFallecidos"
+            android:layout_width="208dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:enabled="false"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etnContagios" />
+
+        <EditText
+            android:id="@+id/etnPoblacion"
+            android:layout_width="176dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="360dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginRight="40dp"
+            android:ems="10"
+            android:enabled="false"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/bBuscar"
+            android:layout_width="187dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="276dp"
+            android:text="Buscar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spMunicipio"
+            android:layout_width="294dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="52dp"
+            android:entries="@array/Municipio"
+            app:layout_constraintBottom_toTopOf="@+id/bBuscar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spComunidad"
+            android:layout_width="294dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="60dp"
+            android:entries="@array/Comunidad"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

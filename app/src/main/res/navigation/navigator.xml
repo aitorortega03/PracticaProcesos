@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/helpFragment"
-        android:name="com.example.infocovid.HelpFragment"
+        android:name="com.example.infocovid.View.HelpFragment"
         android:label="fragment_help"
         tools:layout="@layout/fragment_help" />
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.infocovid.MainFragment"
+        android:name="com.example.infocovid.View.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/datosMapsFragment"
-        android:name="com.example.infocovid.DatosMapsFragment"
+        android:name="com.example.infocovid.View.DatosMapsFragment"
         android:label="fragment_datos_maps"
         tools:layout="@layout/fragment_datos_maps" />
 </navigation>
