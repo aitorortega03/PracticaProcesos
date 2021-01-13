@@ -68,21 +68,23 @@ public class MainFragment extends Fragment {
 
         Button data = vista.findViewById(R.id.btnData);
         Button help = vista.findViewById(R.id.btnHelp);
+        Button profile = vista.findViewById(R.id.btnProfile);
 
         data.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                findNavController(v).navigate(R.id.demainADatos);
-            }
+            public void onClick(View v) { findNavController(v).navigate(R.id.demainADatos);  }
+
         });
 
         help.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                findNavController(v).navigate(R.id.demainAHelp);
-            }
+            public void onClick(View v) { findNavController(v).navigate(R.id.demainAHelp);  }
         });
-
+        /*
+        profile.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v) { findNavController(v).navigate(R.id.demainAPerfil);  }
+        });
+        */
         return vista;
     }
 }
