@@ -80,11 +80,11 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) { findNavController(v).navigate(R.id.demainAHelp);  }
         });
-        /*
+
         profile.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) { findNavController(v).navigate(R.id.demainAPerfil);  }
         });
-        */
+
         return vista;
     }
 }
