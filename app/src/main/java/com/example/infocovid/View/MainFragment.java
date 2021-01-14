@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.infocovid.R;
 
@@ -69,6 +70,16 @@ public class MainFragment extends Fragment {
         Button data = vista.findViewById(R.id.btnData);
         Button help = vista.findViewById(R.id.btnHelp);
         Button profile = vista.findViewById(R.id.btnProfile);
+        ImageView iconoClaro = vista.findViewById((R.id.imageView));
+
+        if (MainActivity.ModoOscuro == true){
+            iconoClaro.setImageResource(R.drawable.logo_white_large);
+
+        }
+        else{
+            iconoClaro.setImageResource(R.drawable.logo_large);
+            
+        }
 
         data.setOnClickListener(new View.OnClickListener() {
             @Override

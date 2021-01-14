@@ -83,6 +83,12 @@ public class InicioSesionFragment extends Fragment {
                         MainActivity.nombreUsuario = etUsuario.getText().toString();
                         findNavController(v).navigate(R.id.demainAMain);
                     }
+                    else{
+                        Toast.makeText(getContext(), "El usuario no existe o la contraseña es incorrecta.", Toast.LENGTH_LONG).show();
+                    }
+                }
+                else{
+                    Toast.makeText(getContext(), "El usuario no existe o la contraseña es incorrecta.", Toast.LENGTH_LONG).show();
                 }
             }
         });

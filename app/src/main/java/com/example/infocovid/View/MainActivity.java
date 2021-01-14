@@ -8,6 +8,7 @@ import com.example.infocovid.R;
 
 public class MainActivity extends AppCompatActivity {
     public static String nombreUsuario;
+    public static boolean ModoOscuro = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
