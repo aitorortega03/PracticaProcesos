@@ -7,6 +7,7 @@ import android.os.Bundle;
 import com.example.infocovid.R;
 
 public class MainActivity extends AppCompatActivity {
+    public static String nombreUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
