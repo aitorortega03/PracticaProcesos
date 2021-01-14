@@ -18,6 +18,7 @@
             android:layout_marginLeft="121dp"
             android:layout_marginTop="55dp"
             android:text="Iniciar Sesion"
+            app:backgroundTint="#00BCD4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etContrasena" />
 
@@ -29,6 +30,7 @@
             android:layout_marginLeft="118dp"
             android:layout_marginTop="153dp"
             android:text="Regístrate"
+            app:backgroundTint="#00BCD4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/bIniciarSesion" />
 
@@ -39,9 +41,10 @@
             android:layout_marginStart="91dp"
             android:layout_marginLeft="91dp"
             android:layout_marginTop="151dp"
+            android:background="#61036FF4"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="Nombre de usuario"
+            android:inputType="textPersonName"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -52,9 +55,10 @@
             android:layout_marginStart="91dp"
             android:layout_marginLeft="91dp"
             android:layout_marginTop="50dp"
+            android:background="#61036FF4"
             android:ems="10"
-            android:inputType="textPassword"
             android:hint="Contraseña"
+            android:inputType="textPassword"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etUsuario" />
 
