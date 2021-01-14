@@ -38,5 +38,9 @@
         <action
             android:id="@+id/demainADatos"
             app:destination="@id/datosMapsFragment" />
+        <action
+            android:id="@+id/demainAPerfil"
+            app:destination="@id/profileFragment" />
     </fragment>
+
 </navigation>
