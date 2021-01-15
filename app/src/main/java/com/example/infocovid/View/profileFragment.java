@@ -62,15 +62,15 @@ public class profileFragment extends Fragment {
         b_oscuro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v){
-                if(b_oscuro.getText().toString().equals("MODO CLARO")) {
-                    b_oscuro.setText("MODO OSCURO");
+                if(b_oscuro.getText().toString().equals("MODO OSCURO")) {
                     MainActivity.ModoOscuro = true;
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    b_oscuro.setText("MODO CLARO");
 
 
                 }
                 else {
-                    b_oscuro.setText("MODO CLARO");
+                    b_oscuro.setText("MODO OSCURO");
                     MainActivity.ModoOscuro = false;
                     
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);

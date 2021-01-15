@@ -119,7 +119,7 @@
             android:layout_width="187dp"
             android:layout_height="42dp"
             android:layout_marginTop="276dp"
-            android:background="#00BCD4"
+            android:background="@color/teal_700"
             android:text="Buscar"
             app:backgroundTint="#00BCD4"
             app:layout_constraintEnd_toEndOf="parent"
