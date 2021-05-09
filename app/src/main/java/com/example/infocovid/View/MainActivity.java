@@ -7,10 +7,13 @@ import android.os.Bundle;
 import com.example.infocovid.R;
 
 public class MainActivity extends AppCompatActivity {
+    public static String nombreUsuario;
+    public static boolean ModoOscuro = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
     }
 }

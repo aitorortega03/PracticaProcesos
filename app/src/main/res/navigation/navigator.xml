@@ -3,13 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigator"
-    app:startDestination="@id/mainFragment">
+    app:startDestination="@id/sesionFragment">
+
+    <fragment
+        android:id="@+id/sesionFragment"
+        android:name="com.example.infocovid.View.InicioSesionFragment"
+        android:label="fragment_sesion"
+        tools:layout="@layout/fragment_inicio_sesion" >
+        <action
+            android:id="@+id/demainAMain"
+            app:destination="@id/mainFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/helpFragment"
         android:name="com.example.infocovid.View.HelpFragment"
         android:label="fragment_help"
         tools:layout="@layout/fragment_help" />
+
+    <fragment
+        android:id="@+id/datosMapsFragment"
+        android:name="com.example.infocovid.View.DatosMapsFragment"
+        android:label="fragment_datos_maps"
+        tools:layout="@layout/fragment_datos_maps" />
+
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.infocovid.View.MainFragment"
@@ -21,10 +38,15 @@
         <action
             android:id="@+id/demainADatos"
             app:destination="@id/datosMapsFragment" />
+        <action
+            android:id="@+id/demainAPerfil"
+            app:destination="@id/profileFragment" />
     </fragment>
+
     <fragment
-        android:id="@+id/datosMapsFragment"
-        android:name="com.example.infocovid.View.DatosMapsFragment"
-        android:label="fragment_datos_maps"
-        tools:layout="@layout/fragment_datos_maps" />
+        android:id="@+id/profileFragment"
+        android:name="com.example.infocovid.View.profileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+
 </navigation>
